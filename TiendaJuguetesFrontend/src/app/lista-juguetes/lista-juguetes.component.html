@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="h2">
+    Listado de juguetes
+  </h2>
+  <ng-container *ngIf="listaJuguetes">
+    <ng-container *ngIf="listaJuguetes.length === 0">
+      <h2 class="h2">No hay juguetes para mostrar</h2>
+      <button type="button" class="btn btn-outline-success btn-lg" routerLink="/agregar">Agregar juguete</button>
+    </ng-container>
+    <ng-container *ngIf="listaJuguetes.length !== 0">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Compañia</th>
+            <th><button class="btn btn-outline-success" (click)="agregarNuevo()">Agregar nuevo</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let juguete of listaJuguetes">
+            <th scope="row">{{juguete.id}}</th>
+            <td>{{juguete.nombre}}</td>
+            <td>{{juguete.restriccionEdad}}</td>
+            <td>{{juguete.precio | currency}}</td>
+            <td>{{juguete.compania}}</td>
+            <td>
+              <button class="btn btn-primary">Actualizar</button>
+              <button class="btn btn-danger">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </ng-container>
+</div>

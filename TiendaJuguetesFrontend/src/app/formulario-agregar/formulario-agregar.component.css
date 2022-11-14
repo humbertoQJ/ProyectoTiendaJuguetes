@@ -1,0 +1,11 @@
+.container, .form-buttons, .form-element {
+  margin-top: 2rem;
+}
+
+button {
+  margin-right: 4px;
+}
+
+.alert {
+  color: red;
+}
