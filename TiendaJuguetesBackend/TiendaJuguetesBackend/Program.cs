@@ -6,6 +6,13 @@ using TiendaJuguetesBackend.Repositorio;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(perm =>
+{
+    perm.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
 builder.Services.AddTransient<IRepository, JuguetesRepositorio>();
 builder.Services.AddControllers();
@@ -23,6 +30,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

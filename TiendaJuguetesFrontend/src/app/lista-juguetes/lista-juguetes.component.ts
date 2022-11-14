@@ -1,31 +1,38 @@
 import { Juguete } from './../../modelos/juguete';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicioJuguetesService } from 'src/servicios/servicio-juguetes.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-juguetes',
   templateUrl: './lista-juguetes.component.html',
   styleUrls: ['./lista-juguetes.component.css']
 })
-export class ListaJuguetesComponent implements OnInit {
+export class ListaJuguetesComponent implements OnInit, OnDestroy {
 
-  listaJuguetes: Juguete [] = [
-    {id: 1,nombre:'max steel', compania: 'Mattel', precio: 51, restriccionEdad: 18},
-    {id: 2,nombre:'barbie', compania: 'Lego', precio: 41, restriccionEdad: 19},
-    {id: 3,nombre:'otra barbie', compania: 'Fisher', precio: 230, restriccionEdad: 10},
-    {id: 4,nombre:'gafidono', compania: 'Nerf', precio: 89, restriccionEdad: 9},
-    {id: 5,nombre:'max', compania: 'Hasbro', precio: 35, restriccionEdad: 45},
-    {id: 6,nombre:'maxor', compania: 'Bandai', precio: 98, restriccionEdad: 9},
-  ]
+  listaJuguetes: Juguete [];
+  suscripcionJuguetes: Subscription;
 
-  constructor(private readonly router: Router) { }
+  constructor(private readonly router: Router, private readonly servicioJuguetes: ServicioJuguetesService) { }
 
   ngOnInit(): void {
-
+    this.suscripcionJuguetes = this.servicioJuguetes.obtenerListaJuguetes().subscribe(res => {
+      this.listaJuguetes = res;
+    })
   }
 
   agregarNuevo(): void {
     this.router.navigate(['/agregar']);
   }
 
+  actualizar(id: number): void {
+    this.router.navigate(['/actualizar/' + id])
+  }
+
+  ngOnDestroy(): void {
+    if(this.suscripcionJuguetes){
+      this.suscripcionJuguetes.unsubscribe();
+    }
+  }
 }

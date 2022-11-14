@@ -8,6 +8,9 @@ import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.co
 import { FormularioAgregarComponent } from './formulario-agregar/formulario-agregar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormularioActualizarComponent } from './formulario-actualizar/formulario-actualizar.component';
+
 
 @NgModule({
   declarations: [
@@ -15,13 +18,15 @@ import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-en
     ListaJuguetesComponent,
     BarraNavegacionComponent,
     FormularioAgregarComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+    FormularioActualizarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
