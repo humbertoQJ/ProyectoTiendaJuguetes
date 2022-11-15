@@ -28,7 +28,7 @@
             <td>{{juguete.compania}}</td>
             <td>
               <button class="btn btn-primary" (click)="actualizar(juguete.id)">Actualizar</button>
-              <button class="btn btn-danger">Borrar</button>
+              <button class="btn btn-danger"(click)="borrar(juguete.id)">Borrar</button>
             </td>
           </tr>
         </tbody>

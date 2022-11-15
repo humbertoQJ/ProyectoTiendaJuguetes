@@ -29,15 +29,15 @@ namespace TiendaJuguetesBackend.Controllers
             return Ok(juguete);
         }
 
-        [HttpPost]
+        [HttpPost("agregar")]
         public async Task<IActionResult> Create(Juguete juguete)
         {
             await repositorio.Insertar(juguete);
             return Created(string.Empty, juguete.Id);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update(Juguete juguete)
+        [HttpPut("actualizar")]
+        public async Task<IActionResult> Update([FromBody] Juguete juguete)
         {
             await repositorio.Actualizar(juguete);
             return NoContent();

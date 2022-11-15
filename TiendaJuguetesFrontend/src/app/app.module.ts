@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormularioActualizarComponent } from './formulario-actualizar/formulario-actualizar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -19,14 +22,17 @@ import { FormularioActualizarComponent } from './formulario-actualizar/formulari
     BarraNavegacionComponent,
     FormularioAgregarComponent,
     PaginaNoEncontradaComponent,
-    FormularioActualizarComponent
+    FormularioActualizarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

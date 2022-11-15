@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServicioJuguetesService } from 'src/servicios/servicio-juguetes.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class FormularioAgregarComponent implements OnInit, OnDestroy {
     private readonly formBuilder: FormBuilder,
     private readonly router: Router,
     private readonly servicioJuguetes: ServicioJuguetesService,
-
+    private servicioAlertas: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -37,10 +38,10 @@ export class FormularioAgregarComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.suscripcionJuguetes = this.servicioJuguetes.agregarJuguete(this.formularioAgregar.value).subscribe(() => {
-
+      this.servicioAlertas.success('Juguete guardado correctamente');
       this.regresar();
     }, error => {
-      alert('error' + error);
+      this.servicioAlertas.error('No se pudo guardar juguete');
     });
   }
 

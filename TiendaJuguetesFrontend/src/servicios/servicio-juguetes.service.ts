@@ -22,16 +22,15 @@ export class ServicioJuguetesService {
     return this.httpClient.get<Juguete>(this.apiURL + 'Juguetes/' + id);
   };
 
-  actualizarJuguete(juguete: Juguete): Observable<Juguete>{
-    return this.httpClient.put<Juguete>(this.apiURL + 'Juguetes', juguete);
+  actualizarJuguete(juguete: Juguete): Observable<void>{
+    return this.httpClient.put<void>(this.apiURL + 'Juguetes/actualizar', juguete);
   }
 
   agregarJuguete(juguete: Juguete): Observable<Juguete>{
-    return this.httpClient.post<Juguete>(this.apiURL + 'Juguetes', juguete);
+    return this.httpClient.post<Juguete>(this.apiURL + 'Juguetes/agregar', juguete);
   }
 
-  // borrarJuguete(id: number): Observable<Juguete>{
-  //   return this.httpClient.delete<Juguete>(this.apiURL + 'Juguetes/', id);
-  // }
-
+  borrarJuguete(id: number): Observable<Juguete>{
+    return this.httpClient.delete<Juguete>(this.apiURL + 'Juguetes/' + id);
+  }
 }
