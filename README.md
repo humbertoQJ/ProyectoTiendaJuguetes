@@ -3,13 +3,13 @@ Proyecto tipo CRUD para proceso de seleccion.
 
 Como ejecutar:
 Requisitos Previos
-  NodeJS instalado
-  Node package manager instalado
-  Angular instalado
-  Dotnet instalado
-  Visual studio/Visual studio code instalado
-  SQL Server instalado
-  Microsoft SQL server magaement studio 18 instalado
+  NodeJS instalado,
+  Node package manager instalado,
+  Angular instalado,
+  Dotnet instalado,
+  Visual studio/Visual studio code instalado,
+  SQL Server instalado,
+  Microsoft SQL server magaement studio 18 instalado.
 
 Ejecutar con linea de comandos.
 
