@@ -12,7 +12,8 @@ Requisitos Previos
   Microsoft SQL server magaement studio 18 instalado
 
 Ejecutar con linea de comandos.
-  Bakcend:
+
+  Backend:
   1. Abrir solucion en visual studio TiendaJuguetesBackend.sln
   2. Ir a appsettings.json
   3. Adaptar la cadena de conexion a la base de datos "DefaultConnection"
